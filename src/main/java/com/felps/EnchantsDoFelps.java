@@ -1,6 +1,7 @@
 package com.felps;
 
 import com.felps.capability.CapabilityController;
+import com.felps.enchants.backstab.handler.BackStabHandler;
 import com.felps.enchants.doublejump.capability.MultiJumpCapabilitySyncHandler;
 import com.felps.enchants.doublejump.handler.MultiJumpClientOnlyHandler;
 import com.felps.enchants.doublejump.handler.MultiJumpHandler;
@@ -56,6 +57,7 @@ public class EnchantsDoFelps
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         MinecraftForge.EVENT_BUS.register(new MultiJumpClientOnlyHandler());
+        MinecraftForge.EVENT_BUS.register(new BackStabHandler());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

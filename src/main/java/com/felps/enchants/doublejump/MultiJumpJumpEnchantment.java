@@ -3,7 +3,6 @@ package com.felps.enchants.doublejump;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.text.ITextComponent;
 
 public class MultiJumpJumpEnchantment extends Enchantment {
 
@@ -11,6 +10,16 @@ public class MultiJumpJumpEnchantment extends Enchantment {
         super(Rarity.VERY_RARE, EnchantmentType.ARMOR_FEET, new EquipmentSlotType[]{EquipmentSlotType.MAINHAND,
                 EquipmentSlotType.OFFHAND});
         this.name = "Multi Jump";
+    }
+
+    @Override
+    public int getMinEnchantability(int enchantmentLevel) {
+        return enchantmentLevel * 10;
+    }
+
+    @Override
+    public int getMaxEnchantability(int enchantmentLevel) {
+        return this.getMinEnchantability(enchantmentLevel) + 15;
     }
 
     @Override
@@ -23,8 +32,5 @@ public class MultiJumpJumpEnchantment extends Enchantment {
         return 2;
     }
 
-    @Override
-    public ITextComponent getDisplayName(int level) {
-        return super.getDisplayName(level);
-    }
+
 }
